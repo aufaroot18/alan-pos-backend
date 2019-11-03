@@ -62,7 +62,7 @@ class BarangController extends Controller
      */
     public function show(Barang $barang)
     {
-        //
+        return view('barang.show', compact("barang"));
     }
 
     /**
