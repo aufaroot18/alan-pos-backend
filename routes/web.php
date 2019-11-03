@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Barang routes
-route::resource('barang', 'BarangController');
+route::resource('barang', 'BarangController')->middleware('auth');
