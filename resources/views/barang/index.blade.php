@@ -9,6 +9,12 @@
     <a href="{{ route('barang.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Tambah Barang</a>
   </div>
 
+  @if(session('status'))
+  <div class="alert alert-success">
+    {{session('status')}}
+  </div>
+  @endif
+
   <!-- Content Row -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -47,8 +53,21 @@
               <td>{{$barang->nama_barang}}</td>
               <td>{{$barang->harga}}</td>
               <td>{{$barang->stok}}</td>
-              <td class="text-center"><a href="{{ route('barang.show', $barang->id) }}/edit" class="btn btn-success btn-sm ">Edit</a></td>
-              <td class="text-center"><a href="{{ route('barang.show', $barang->id) }}" class="btn btn-danger btn-sm ">Hapus</a></td>
+              <td class="text-center">
+                <a href="{{ route('barang.show', $barang->id) }}/edit" class="btn btn-success btn-sm ">
+                  <i class="fas fa-edit"></i>
+                </a>
+              </td>
+              <!-- <td class="text-center"><a href="{{ route('barang.show', $barang->id) }}" class="btn btn-danger btn-sm ">Hapus</a></td> -->
+              <td class="text-center">
+                <form action="{{ route('barang.destroy', $barang->id) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </td>
             </tr>
             @endforeach
           </tbody>
