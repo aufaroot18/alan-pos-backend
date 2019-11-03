@@ -16,23 +16,27 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
+        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+          <thead class="text-center">
             <tr>
               <th>No</th>
               <th>Kode Barang</th>
               <th>Nama Barang</th>
               <th>Harga</th>
               <th>Stok</th>
+              <th>Edit</th>
+              <th>Hapus</th>
             </tr>
           </thead>
-          <tfoot>
+          <tfoot class="text-center">
             <tr>
               <th>No</th>
               <th>Kode Barang</th>
               <th>Nama Barang</th>
               <th>Harga</th>
               <th>Stok</th>
+              <th>Edit</th>
+              <th>Hapus</th>
             </tr>
           </tfoot>
           <tbody>
@@ -43,6 +47,8 @@
               <td>{{$barang->nama_barang}}</td>
               <td>{{$barang->harga}}</td>
               <td>{{$barang->stok}}</td>
+              <td class="text-center"><a href="{{ route('barang.show', $barang->id) }}/edit" class="btn btn-success btn-sm ">Edit</a></td>
+              <td class="text-center"><a href="{{ route('barang.show', $barang->id) }}" class="btn btn-danger btn-sm ">Hapus</a></td>
             </tr>
             @endforeach
           </tbody>

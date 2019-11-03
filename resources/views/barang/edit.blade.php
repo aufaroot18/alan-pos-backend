@@ -5,7 +5,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Tambah Barang</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Barang</h1>
     <a href="{{ route('barang.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Daftar Barang</a>
   </div>
 
@@ -15,8 +15,9 @@
   </div>
   @endif
 
-  <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('barang.update', $barang->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="kode_barang">Kode Barang</label>
@@ -56,7 +57,8 @@
           <label class="custom-file-label" for="gambar">Pilih Gambar</label>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Tambah Barang</button>
+    <input type="hidden" name="id" value="{{ $barang->id }}">
+    <button type="submit" class="btn btn-primary">Edit Barang</button>
   </form>
 
 </div>

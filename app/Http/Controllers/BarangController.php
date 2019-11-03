@@ -62,7 +62,7 @@ class BarangController extends Controller
      */
     public function show(Barang $barang)
     {
-        return view('barang.show', compact("barang"));
+        // return view('barang.show', compact("barang"));
     }
 
     /**
@@ -73,7 +73,7 @@ class BarangController extends Controller
      */
     public function edit(Barang $barang)
     {
-        //
+        return view('barang.edit', compact("barang"));
     }
 
     /**
@@ -85,7 +85,23 @@ class BarangController extends Controller
      */
     public function update(Request $request, Barang $barang)
     {
-        //
+        $id = $barang->id;
+
+        $validateData = $request->validate([
+            "kode_barang" => 'required',
+            "nama_barang" => 'required',
+            "harga" => 'required|numeric',
+            "stok" => 'required|numeric',
+        ]);
+
+        $barang = Barang::where('id', $barang->id)->update([
+            "kode_barang" => $request->kode_barang,
+            "nama_barang" => $request->nama_barang,
+            "harga" => $request->harga,
+            "stok" => $request->stok,
+        ]);
+
+        return redirect()->route('barang.edit', ['barang' => $id])->with('status', 'Data telah diedit');
     }
 
     /**
