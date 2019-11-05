@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
@@ -26,13 +26,13 @@
     Barang
   </div> -->
 
-  <!-- Nav Item - Pages Collapse Menu -->
+  <!-- Nav Item - Barang -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBarang" aria-expanded="true" aria-controls="collapsePages">
       <i class="fas fa-fw fa-folder"></i>
       <span>Barang</span>
     </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+    <div id="collapseBarang" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <a class="collapse-item" href="{{route('barang.index')}}">Barang</a>
         <a class="collapse-item" href="{{route('barang.create')}}">Tambah Barang</a>
@@ -42,9 +42,16 @@
 
   <!-- Nav Item - Charts -->
   <li class="nav-item">
-    <a class="nav-link" href="{{asset('sbadmin/charts.html')}}">
-      <i class="fas fa-fw fa-chart-area"></i>
-      <span>Kasir</span></a>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKasir" aria-expanded="true" aria-controls="collapsePages">
+      <i class="fas fa-fw fa-folder"></i>
+      <span>Kasir</span>
+    </a>
+    <div id="collapseKasir" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="{{route('kasir.index')}}">Kasir</a>
+        <!-- <a class="collapse-item" href="{{route('barang.create')}}">Transaksi</a> -->
+      </div>
+    </div>
   </li>
 
   <!-- Divider -->
