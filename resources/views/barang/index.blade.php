@@ -30,8 +30,7 @@
               <th>Nama Barang</th>
               <th>Harga</th>
               <th>Stok</th>
-              <th>Edit</th>
-              <th>Hapus</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tfoot class="text-center">
@@ -41,8 +40,7 @@
               <th>Nama Barang</th>
               <th>Harga</th>
               <th>Stok</th>
-              <th>Edit</th>
-              <th>Hapus</th>
+              <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
@@ -54,20 +52,26 @@
               <td>{{$barang->harga}}</td>
               <td>{{$barang->stok}}</td>
               <td class="text-center">
-                <a href="{{ route('barang.show', $barang->id) }}/edit" class="btn btn-success btn-sm ">
-                  <i class="fas fa-edit"></i>
-                </a>
-              </td>
-              <!-- <td class="text-center"><a href="{{ route('barang.show', $barang->id) }}" class="btn btn-danger btn-sm ">Hapus</a></td> -->
-              <td class="text-center">
-                <form action="{{ route('barang.destroy', $barang->id) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-sm btn-danger">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </form>
-              </td>
+                <span class="d-inline">
+                  <a href="{{ route('barang.show', $barang->id) }}" class="btn btn-primary btn-sm ">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                </span>
+                <span class="d-inline">
+                  <a href="{{ route('barang.show', $barang->id) }}/edit" class="btn btn-success btn-sm ">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </span>
+                <span class="d-inline">
+                  <form class="d-inline" action="{{ route('barang.destroy', $barang->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </form>
+                </span>
+              </td>              
             </tr>
             @endforeach
           </tbody>
