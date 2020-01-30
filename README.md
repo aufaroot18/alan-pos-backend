@@ -1,4 +1,4 @@
-# alan-pos-backend
+# laravel-alan-pos
 Alan Pos Website with Laravel
 
 ## Installation
@@ -38,7 +38,7 @@ php artisan db:seed
 ```
 
 ## Demo
-Demo Website: -.
+Demo Website (Landing Page): [Laravel Alan Pos](https://aufaroot18.github.io/laravel-alan-pos/).
 
 ## Authors
 Aufa Billah.
